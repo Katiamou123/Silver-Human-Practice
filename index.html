@@ -48,7 +48,14 @@
       background: var(--bg);
       color: var(--fg);
       scroll-behavior: smooth;
+        background-color: #78e7a1;
     }
+
+
+    [data-theme="dark"] body {
+  background-color: #56a372; /* dark mode green */
+}
+
 
 header.site-header {
   position: sticky;
@@ -147,6 +154,12 @@ nav ul li {
   text-align: center;
   padding: 6rem 1rem 3rem;
   background: linear-gradient(135deg, var(--soft-accent), transparent);
+}
+
+[data-theme="dark"] .hero {
+   background: linear-gradient(135deg, rgba(11, 58, 29, 0.68), transparent);
+      padding: 6rem 1rem 3rem;
+
 }
 
 .hero h1 {
@@ -361,8 +374,7 @@ nav ul li:hover > .dropdown {
       <li>
         <a>Team</a>
         <div class="dropdown">
-          <a href="under-construction.html">Members</a>
-          <a href="under-construction.html">Helpers</a>
+          <a href="under-construction.html">People</a>
           <a href="under-construction.html">Attribution</a>
         </div>
       </li>

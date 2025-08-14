@@ -68,6 +68,7 @@
       background: var(--bg);
       line-height: 1.6;
       overflow-y: scroll;
+       background-color: #78e7a1;
 }
 
     /* --- Top Nav --- */
@@ -124,6 +125,13 @@
      background: linear-gradient(135deg, var(--soft-accent), transparent);
       padding: 4rem 1rem 3rem;
     }
+
+[data-theme="dark"] .hero {
+   background: linear-gradient(135deg, rgba(11, 58, 29, 0.68), transparent);
+      padding: 4rem 1rem 3rem;
+
+}
+
     .hero .inner {
       max-width: var(--maxw);
       margin: 0 auto;
@@ -551,10 +559,9 @@
     <ul>
       <li><a>Home</a></li>
       <li>
-        <a>Team</a>
+       <a>Team</a>
         <div class="dropdown">
-          <a href="under-construction.html">Members</a>
-          <a href="under-construction.html">Helpers</a>
+          <a href="under-construction.html">People</a>
           <a href="under-construction.html">Attribution</a>
         </div>
       </li>
