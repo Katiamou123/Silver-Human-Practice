@@ -71,6 +71,9 @@
       overflow-y: scroll;
          background-color: #78e7a1;
 }
+    [data-theme="dark"] body {
+  background-color: #478b60; /* dark mode green */
+}
 
     /* --- Top Nav --- */
     header.site-header {
@@ -574,12 +577,17 @@
     font-size: 0.95em;
     transition: all 0.2s ease-in-out;
     cursor: pointer;
-    background-color: var(--keyword-bg);
-    color: var(--keyword-color);
+    background-color: #e0ffe9cc;
+    color: #12873d;
+}
+[data-theme="dark"] .keyword {
+    background-color: rgba(2, 190, 127, 0.2); /* green-teal */
+    color: #eafff5; /* pale greenish text */
+    border-color: rgba(0, 210, 140, 0.35);
 }
 
 .keyword:hover {
-    background-color: var(--keyword-hover-bg);
+    background-color: #9ec7aacc;;
     transform: scale(1.05);
 }
 
@@ -694,7 +702,14 @@
     <div class="inner">
       
       <h1>Model</h1>
-      <p>In the Model section, we are focusing on <em>Computational Modelling of Convergent Evolution in Chitin Degradation Across the Tree of Life</em></p>
+      <p><strong><em>A Model of Convergent Evolution in Chitinase Activity</em></strong></p>
+     <p 
+   style="max-width:1100px; margin:0 auto; line-height:1.5; font-size:1rem;">
+  Our model traces how chitin-degrading enzymes evolved independently across diverse taxa, 
+  combining phylogenetic reconstruction and ecological data to reveal convergence — and 
+  to identify robust enzymes for synthetic biology.
+</p>
+
       <div class="muted" style="margin-top: .75rem; font-size:.9rem;"></div>
     </div>
   </section>
