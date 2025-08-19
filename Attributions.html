@@ -67,6 +67,9 @@
       overflow-y: scroll;
         background-color: #78e7a1;
 }
+     [data-theme="dark"] body {
+  background-color: #478b60; /* dark mode green */
+}
 
     /* --- Top Nav --- */
     header.site-header {
@@ -157,22 +160,7 @@
     }
 
 
-    /* --- Back to top --- */
-    #backToTop {
-      position: fixed;
-      right: 1rem;
-      bottom: 1rem;
-      padding: .6rem .8rem;
-      border-radius: 999px;
-      background: var(--accent);
-      color: var(--accent-contrast);
-      box-shadow: var(--shadow);
-      border: none;
-      cursor: pointer;
-      display: none;
-      z-index: 1001;
-    }
-    #backToTop.show { display: inline-flex; }
+    
 
     /* --- Utilities --- */
     .muted { color: var(--muted); }
@@ -403,10 +391,10 @@
         </div>
       </li>
       <li>
-        <a class="active">Human</a>
+        <a>Human</a>
         <div class="dropdown">
           <a href="under-construction.html">Overview</a>
-          <a class="active" href="index.html">Silver Human Practices</a>
+          <a href="index.html">Silver Human Practices</a>
           <a href="under-construction.html">Integrated Human Practices</a>
         </div>
       </li>
@@ -429,7 +417,7 @@
 
   <div id="iframe-container">
 <iframe
-  style="width: 94%; height: 200vh; border: none; text-align: center;"
+  style="width: 94%; min-height: 380vh; border: none; text-align: center;"
   id="igem-attribution-form"
   src="https://teams.igem.org/wiki/5994/attributions"
   scrolling="no"
@@ -443,7 +431,7 @@
     </main>
   </div>
 
-  <button id="backToTop" aria-label="Back to top">↑</button>
+
 
  <script>
   document.addEventListener('DOMContentLoaded', function () {

@@ -70,6 +70,9 @@
       overflow-y: scroll;
        background-color: #78e7a1;
 }
+    [data-theme="dark"] body {
+  background-color: #478b60; /* dark mode green */
+}
 
     /* --- Top Nav --- */
     header.site-header {
@@ -322,22 +325,6 @@
       padding: 0 1rem 1rem;
     }
 
-    /* --- Back to top --- */
-    #backToTop {
-      position: fixed;
-      right: 1rem;
-      bottom: 1rem;
-      padding: .6rem .8rem;
-      border-radius: 999px;
-      background: var(--accent);
-      color: var(--accent-contrast);
-      box-shadow: var(--shadow);
-      border: none;
-      cursor: pointer;
-      display: none;
-      z-index: 1001;
-    }
-    #backToTop.show { display: inline-flex; }
 
     /* --- Utilities --- */
     .muted { color: var(--muted); }
@@ -506,43 +493,52 @@
 
 
 
+ .stats-board {
+  margin: 2rem auto 0;
+  background-color: #f9fafb; /* adapts to theme */
+  border-radius: 12px;
+  padding: 1.5rem 2rem;
+  max-width: 450px;
+  text-align: center;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  box-shadow: var(--shadow);
+  border: 1px solid var(--border);
+}
+
+[data-theme="dark"] .stats-board
+  {background-color: #0f172a;
+  }
+
+  
+.stats-title {
+  font-size: 1.8rem;
+  color: var(--accent); /* adapts */
+  font-weight: 700;
+  margin-bottom: 2rem;
+}
+
+.stat {
+  margin: 1.5rem 0;
+}
+
+.stat-number {
+  font-size: 3rem;
+  font-weight: 900;
+  color: var(--accent); /* adapts */
+  line-height: 1;
+}
+
+.stat-label {
+  font-size: 1.1rem;
+  color: var(--muted); /* adapts */
+  margin-top: 0.25rem;
+}
 
 
 
 
 
-     .stats-board {
-       margin: 2rem auto 0; 
-      background-color: #e6f4ea; 
-      border-radius: 12px; 
-      padding: 1.5rem 2rem; 
-      max-width: 450px; 
-      text-align: center;
-      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-      box-shadow: 0 4px 10px rgb(0 0 0 / 0.1);
-    
-    }
-    .stats-title {
-      font-size: 1.8rem;
-      color: #004d23;
-      font-weight: 700;
-      margin-bottom: 2rem;
-    }
-    .stat {
-      margin: 1.5rem 0;
-    }
-    .stat-number {
-      font-size: 3rem;
-      font-weight: 900;
-      color: #006f3c;
-      line-height: 1;
-    }
-    .stat-label {
-      font-size: 1.1rem;
-      color: #555;
-      margin-top: 0.25rem;
-    }
-
+     
   </style>
 </head>
 <body>
@@ -651,11 +647,7 @@
       <a href="#chitinator" class="button">Take Me There</a>
     </article>
 
-      <article class="card">
-        <h4>?????</h4>
-        <p>?????</p>
-        <a href="#?" class="button">Take Me There</a>
-      </article>
+      
     </div>
   </section>
 
@@ -669,7 +661,7 @@
         <li><a href="#limits">Existing Approaches & Their Limits</a></li>
         <li><a href="#approach">Our Approach</a></li>
         <li><a href="#chitinator">Chitinator et al.</a></li>
-        <li><a href="#?">?????</a></li>
+        
       </ul>
     </aside>
 
@@ -846,19 +838,7 @@
       </section>
 
 
-      <!-- SECTION: Implementation & Risk -->
-      <section id="impact" class="section" aria-labelledby="impact-title">
-      <h2 id="reachingout-title">?????</h2>
-        <div class="summary">
-          <strong>Outline:</strong> ????
-        </div>
-        <div class="static-panel">
-<h3>????</h3>
-
-<p>???</p>
-
-        </div>
-      </section>
+     
 
       <footer style="margin-top: 4rem; text-align:center; color: var(--muted); font-size:.9rem;">
         <p>Place for footer when I finally decide what I want here</p>
@@ -867,7 +847,7 @@
   </div>
 
 
-  <button id="backToTop" aria-label="Back to top">↑</button>
+
 
  <script>
   document.addEventListener('DOMContentLoaded', function () {

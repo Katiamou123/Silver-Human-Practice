@@ -87,7 +87,9 @@
       overflow-y: scroll;
        background-color: #78e7a1;
     }
-   
+       [data-theme="dark"] body {
+  background-color: #478b60; /* dark mode green */
+}
 
     /*******************************************************************
      * 2) SITE HEADER & NAV (same structure & feel as Safety page)
@@ -566,6 +568,7 @@ background-color: #86ffb370;
       flex-wrap: wrap;
       gap: .4rem;
       margin-top: .25rem;
+       justify-content: center; /* centers badges horizontally */
     }
     .badge {
       border-radius: 999px;
@@ -800,11 +803,11 @@ background-color: #86ffb370;
               <!-- Back -->
               <div class="card-face back">
                 <div class="bio">
-                  <p>Drives the experimental roadmap, keeps sprints focused, and never runs out of neon post-its. 🧪</p>
+                  <p>Runs on caffeine and fuchsia sparkles, drops pipettes like mic drops, calls the wet lab her natural habitat and models proteins as if they’re haute couture.</p> <p>💖🧪👑</p>
                   <div class="badges">
-                    <span class="badge">BSL-1 Pro</span>
-                    <span class="badge">T7 Whisperer</span>
-                    <span class="badge">Cloning</span>
+                    <span class="badge">PCR Diva</span>
+                    <span class="badge">Wet Lab Barbie</span>
+                    <span class="badge">Structure Whisperer</span>
                   </div>
                 </div>
                 
@@ -825,11 +828,11 @@ background-color: #86ffb370;
               </div>
               <div class="card-face back">
                 <div class="bio">
-                  <p>Turns reaction rates into stories. Loves differential equations almost as much as espresso. 📈</p>
+                  <p>Molecular biologist turned web developer, debugs like it’s PCR troubleshooting, believes “syntax error” is just another kind of mutation.</p> <p>☕🧬💻</p>
                   <div class="badges">
-                    <span class="badge">ODEs</span>
-                    <span class="badge">Comsol-ish</span>
-                    <span class="badge">Pythonic</span>
+                    <span class="badge">Caffeine-Infused Cells</span>
+                    <span class="badge">Deadline-driven</span>
+                    <span class="badge">Semi-colon haunted</span>
                   </div>
                 </div>
                
@@ -851,11 +854,12 @@ background-color: #86ffb370;
               </div>
               <div class="card-face back">
                 <div class="bio">
-                  <p>Builds bridges with people and policy. Always reminds us: <em>why</em> matters. 🤝</p>
+                  <p>Writes scripts that almost work, spends hours fixing commas, and still claims it’s bioinformatics.</p><p>🖥️🐧🔬</p>
                   <div class="badges">
-                    <span class="badge">GDPR</span>
-                    <span class="badge">Ethics</span>
-                    <span class="badge">Workshops</span>
+                      <span class="badge">Linux nerd</span>
+                    <span class="badge">Sleep-deprived</span>
+                    <span class="badge">Script killer</span>
+                  
                   </div>
                 </div>
                
@@ -903,11 +907,11 @@ background-color: #86ffb370;
               </div>
               <div class="card-face back">
                 <div class="bio">
-                  <p>Makes pixels behave and pages sing. The reason this page feels so clean. ✨</p>
+                  <p>Sees biology through rose-tinted goggles, seeks to uncover the hidden pathways of science, the bridge between science and the outside world.</p><p>🍹🥼🌹</p>
                   <div class="badges">
-                    <span class="badge">CSS</span>
-                    <span class="badge">SVG</span>
-                    <span class="badge">Motion</span>
+                    <span class="badge">Barwoman of the Lab</span>
+                    <span class="badge">Science Sommelier</span>
+                    <span class="badge">Molecular Romantic</span>
                   </div>
                 </div>
                 
@@ -929,11 +933,11 @@ background-color: #86ffb370;
               </div>
               <div class="card-face back">
                 <div class="bio">
-                  <p>Writes like a scientist, edits like a poet. Turns data into stories. 📝</p>
+                  <p>Designs graphics for the Team, merges creative visuals and interactive molecular tools to make science accessible and compelling</p><p>🧫🎨🧩</p>
                   <div class="badges">
-                    <span class="badge">Diagrams</span>
-                    <span class="badge">Editing</span>
-                    <span class="badge">MD</span>
+                    <span class="badge">Creative</span>
+                    <span class="badge">Talkative</span>
+                    <span class="badge">Protein‑Spinner</span>
                   </div>
                 </div>
                 
@@ -1166,8 +1170,7 @@ background-color: #86ffb370;
     </main>
   </div>
 
-  <!-- Back to top -->
-  <button id="backToTop" aria-label="Back to top">↑</button>
+ 
 
   <!-- ============================================================= -->
   <!-- Scripts (theme toggle, scrollspy, nav, flip behavior)         -->

@@ -66,6 +66,9 @@
       overflow-y: scroll;
   background-color: #78e7a1;
 }
+    [data-theme="dark"] body {
+  background-color: #478b60; /* dark mode green */
+}
 
     /* --- Top Nav --- */
     header.site-header {
@@ -328,22 +331,7 @@
       padding: 0 1rem 1rem;
     }
 
-    /* --- Back to top --- */
-    #backToTop {
-      position: fixed;
-      right: 1rem;
-      bottom: 1rem;
-      padding: .6rem .8rem;
-      border-radius: 999px;
-      background: var(--accent);
-      color: var(--accent-contrast);
-      box-shadow: var(--shadow);
-      border: none;
-      cursor: pointer;
-      display: none;
-      z-index: 1001;
-    }
-    #backToTop.show { display: inline-flex; }
+
 
     /* --- Utilities --- */
     .muted { color: var(--muted); }
@@ -1006,7 +994,7 @@ These collaborations reflect our belief that scientific innovation thrives at th
     </main>
   </div>
 
-  <button id="backToTop" aria-label="Back to top">↑</button>
+
 
  <script>
   document.addEventListener('DOMContentLoaded', function () {

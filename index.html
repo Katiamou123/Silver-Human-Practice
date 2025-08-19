@@ -41,6 +41,12 @@
   --shadow: 0 8px 24px rgba(0,0,0,0.3);
 }
 
+body {
+  overflow-x: hidden; /* prevents horizontal scroll */
+  overflow-y: auto;   /* keep vertical scrolling normal */
+}
+
+
     html, body {
       margin: 0;
       padding: 0;
@@ -49,11 +55,13 @@
       color: var(--fg);
       scroll-behavior: smooth;
         background-color: #78e7a1;
+          box-sizing: border-box;
+       
     }
 
 
     [data-theme="dark"] body {
-  background-color: #56a372; /* dark mode green */
+  background-color: #478b60; /* dark mode green */
 }
 
 
@@ -174,32 +182,6 @@ nav ul li {
   margin: 0 auto;
 }
 
-    section.section {
-      padding: 3rem 1rem;
-      max-width: 800px;
-      margin: 0 auto;
-      opacity: 0;
-      transform: translateY(20px);
-      transition: opacity 0.8s ease, transform 0.8s ease;
-    }
-
-    section.section.in-view {
-      opacity: 1;
-      transform: none;
-    }
-
-    section h2 {
-      font-size: 1.8rem;
-      margin-bottom: 1rem;
-    }
-
-    section p {
-      font-size: 1rem;
-      line-height: 1.6;
-    }
-
-
-
 
 
 
@@ -219,7 +201,23 @@ nav ul li {
 
 
 
-   
+   main p {
+  text-align: justify;
+}
+
+ .layout {
+  display: grid;
+  grid-template-columns: 260px 1fr;
+  gap: 2rem;
+  max-width: var(--maxw);
+  margin-left: 1rem;
+  margin-right: auto;
+  padding: 2rem 1rem 4rem;
+}
+
+
+
+
 
  
 
@@ -246,6 +244,21 @@ nav ul li {
 nav ul li:hover > .dropdown {
   display: flex;
 }
+
+.chitin-gif-wrapper {
+  display: flex;
+  justify-content: center; /* centers horizontally */
+ 
+}
+
+.chitin-gif {
+  max-width: 360px;       /* controls size */
+  width: 70%;             /* responsive */
+  height: auto;
+}
+
+
+
 
 
     /* Hamburger button */
@@ -325,36 +338,165 @@ nav ul li:hover > .dropdown {
     
 
      .stats-board {
-       margin: 2rem auto 0; 
-      background-color: #e6f4ea; 
-      border-radius: 12px; 
-      padding: 1.5rem 2rem; 
-      max-width: 450px; 
-      text-align: center;
-      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-      box-shadow: 0 4px 10px rgb(0 0 0 / 0.1);
+  margin: 2rem auto 0;
+  background-color: var(--card-bg); /* adapts to theme */
+  border-radius: 12px;
+  padding: 1.5rem 2rem;
+  max-width: 450px;
+  text-align: center;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  box-shadow: var(--shadow);
+  border: 1px solid var(--border);
+}
+
+.stats-title {
+  font-size: 1.8rem;
+  color: var(--accent); /* adapts */
+  font-weight: 700;
+  margin-bottom: 2rem;
+}
+
+.stat {
+  margin: 1.5rem 0;
+}
+
+.stat-number {
+  font-size: 3rem;
+  font-weight: 900;
+  color: var(--accent); /* adapts */
+  line-height: 1;
+}
+
+.stat-label {
+  font-size: 1.1rem;
+  color: var(--muted); /* adapts */
+  margin-top: 0.25rem;
+}
+
+
     
+    /* --- TOC (sticky side) --- */
+
+    aside.toc {
+      position: sticky;
+      top: 96px;
+      height: max-content;
+      border: 1px solid var(--border);
+      background: var(--card-bg);
+      border-radius: var(--radius);
+      box-shadow: var(--shadow);
+      padding: 1rem;
     }
-    .stats-title {
-      font-size: 1.8rem;
-      color: #004d23;
-      font-weight: 700;
-      margin-bottom: 2rem;
+    aside.toc h4 {
+      margin-top: 0;
+      margin-bottom: .5rem;
+      color: var(--accent);
+      display: flex;
+      align-items: center;
+      gap: .4rem;
+      font-size: 1rem;
     }
-    .stat {
-      margin: 1.5rem 0;
+    aside.toc ul {
+      list-style: none;
+      padding: 0;
+      margin: 0;
+      display: flex;
+      flex-direction: column;
+      gap: .4rem;
     }
-    .stat-number {
-      font-size: 3rem;
-      font-weight: 900;
-      color: #006f3c;
-      line-height: 1;
+    aside.toc a {
+      text-decoration: none;
+      color: var(--fg);
+      opacity: .75;
+      transition: opacity var(--transition), color var(--transition);
+      border-left: 2px solid transparent;
+      padding-left: .5rem;
     }
-    .stat-label {
-      font-size: 1.1rem;
-      color: #555;
-      margin-top: 0.25rem;
+    aside.toc a:hover { opacity: 1; color: var(--accent); }
+    aside.toc a.active {
+      opacity: 1;
+      color: var(--accent);
+      border-left-color: var(--accent);
     }
+
+
+
+
+section.section {
+  width: 100vw;
+  padding: 2rem;
+  margin: 0;
+  box-sizing: border-box;
+  opacity: 0;
+  transform: translateY(20px);
+  transition: opacity 0.8s ease, transform 0.8s ease;
+}
+
+section.section.in-view {
+  opacity: 1;
+  transform: none;
+}
+
+section h2 {
+  font-size: 1.8rem;
+  margin-bottom: 1rem;
+}
+
+section p {
+  font-size: 1rem;
+  line-height: 1.6;
+}
+
+.section-content {
+  display: flex;
+  align-items: center;     /* vertical center */
+  gap: 2rem;
+  width: 100%;
+  box-sizing: border-box;
+}
+
+.section-content .text {
+  flex: 1 1 55%;           /* slightly wider text */
+  max-width: 55%;
+}
+
+.section-content .image {
+  flex: 0 0 200px;         /* smaller fixed width */
+  display: flex;
+  justify-content: flex-start;
+  margin-left: 1.5rem;     /* space between text and image */
+}
+
+.section-content .image img {
+  width: 100%;
+  max-width: 200px;
+  height: auto;
+  display: block;
+}
+
+
+
+@media (max-width: 768px) {
+  .section-content {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .section-content .text {
+    max-width: 100%;
+  }
+
+  .section-content .image {
+    width: 90%;
+    justify-content: flex-start;
+    margin-top: 1rem;
+  }
+}
+
+
+
+
+
 
   </style>
 </head>
@@ -405,7 +547,7 @@ nav ul li:hover > .dropdown {
         </div>
       </li>
       <li>
-        <a class="active">Human</a>
+        <a>Human</a>
         <div class="dropdown">
           <a href="under-construction.html">Overview</a>
           <a href="index.html">Silver Human Practices</a>
@@ -428,8 +570,41 @@ nav ul li:hover > .dropdown {
     </div>
   </section>
 
+  <div class="layout">
+   <!-- Sticky in-page TOC -->
+<aside class="toc" aria-label="Πίνακας Περιεχομένων">
+  <h4>☰ Table Of Contents</h4>
+  <ul id="tocList">
+    <li><a href="#relevant" class="active">Why is it relevant today?</a>
+  
+    </li>
+
+    <li><a href="#problem">The Problem</a>
+ 
+    </li>
+
+    <li><a href="#solution">Our Solution</a>
+
+    </li>
+
+    <li><a href="#chitin">What is Chitin?</a>
+
+    </li>
+
+    <li><a href="#mission">Our Mission</a>
+
+    </li>
+
+    <li><a href="#methodology">The Methodology</a>
+
+</aside>
+
+
   <main>
-    <section class="section"><h2>Why is it relevant today?</h2><p>Chitinator et al. is a project focused on the biodegradation of chitin, aiming to convert it
+    <section id="relevant" class="section">
+  <div class="section-content">
+    <div class="text">
+     <h2>Why is it relevant today?</h2><p>Chitinator et al. is a project focused on the biodegradation of chitin, aiming to convert it
 into valuable products like biofertilizer using tools from synthetic biology.</p>
 <p>Chitinator et al. reflects a growing global interest in sustainable innovation, circular thinking,
 and environmentally conscious science. It belongs to a new generation of projects that move
@@ -437,8 +612,20 @@ beyond theory, seeking to bring synthetic biology into real-world applications.<
 <p>As the world faces challenges like waste accumulation, climate impact, and the need for
 greener agricultural practices, this project resonates with current scientific and societal
 priorities. It shows how biology can be used not only to understand the world, but to help
-improve it — by turning waste into value, and problems into solutions.</p></section>
-    <section class="section"><h2>The Problem</h2><p>Our project, Chitinator et al., addresses two interlinked problems — one agricultural and one
+improve it — by turning waste into value, and problems into solutions.</p>
+    </div>
+    <div class="image">
+      <img src="images/why_is_it_relevant.png" alt="Description">
+    </div>
+  </div>
+</section>
+
+
+
+    <section id="problem" class="section">
+  <div class="section-content">
+    <div class="text">
+ <h2>The Problem</h2><p>Our project, Chitinator et al., addresses two interlinked problems — one agricultural and one
 environmental — both of which are highly relevant today.</p>
 <p><strong>1. The agricultural problem:</strong></p>
 <p>Modern agriculture relies heavily on chemical fertilizers to sustain high crop yields.
@@ -460,54 +647,40 @@ resource recovery.</p>
 underutilization of chitinous seafood waste, our project aims to introduce a sustainable,
 bio-based solution that connects environmental responsibility with agricultural innovation.</p>
 
-
-  <section id="statistics" class="stats-board" aria-label="Statistics Board">
-    <h2 class="stats-title">What the Numbers Say: Waste, Opportunity, and Impact</h2>
-
-    <div class="stat">
-      <div class="stat-number" data-target="100000000000">0</div>
-      <div class="stat-label">Tons of chitin produced annually</div>
     </div>
-    <div class="stat">
-      <div class="stat-number" data-target="6000000">0</div>
-      <div class="stat-label">Tons of crustacean shells wasted yearly</div>
-    </div>
-    <div class="stat">
-      <div class="stat-number" data-target="200000000000">0</div>
-      <div class="stat-label">Global fertilizer market (USD)</div>
-    </div>
-    <div class="stat">
-      <div class="stat-number" data-target="40">0</div>
-      <div class="stat-label">Percent nitrogen runoff in some regions</div>
-    </div>
-  </section>
 
-
-
+    <div class="image">
+      <img src="images/2_problems.png" alt="Description">
+    </div>
+  </div>
 </section>
-    <section class="section"><h2>Our Solution</h2><p>To address the dual challenge of agricultural overreliance on chemical fertilizers and the
-underutilization of chitin-rich seafood waste, our project proposes a <strong>synthetic biology-based
-biodegradation system</strong>.</p>
-<p>We genetically modify Bacillus subtilis and Escherichia coli to express a <strong>dual-function
-fusion enzyme</strong> composed of an <strong>endochitinase</strong> and an <strong>exochitinase</strong> domain. These two
-enzymes work synergistically to break down chitin into its monomeric units, primarily Nacetylglucosamine
-(GlcNAc).</p>
-<p>This enzymatic activity is designed to occur <strong>directly in the substrate</strong>—in chitin-containing
-biomass such as shrimp shells—where the engineered bacteria serve as biological tools for
-depolymerization.</p>
-<p>The result of this process is a <strong>nutrient-rich product</strong> derived from chitin degradation. This
-product can be:</p>
-<ul>
-<li>Integrated into compost mixtures, enhancing their nitrogen and carbon content</li>
-<li>Added to existing organic fertilizers, improving their bioavailability</li>
-<li>Explored as a potential standalone biofertilizer, due to its beneficial chemical
-profile</li>
-</ul>
-<p>In essence, we convert an otherwise inert and difficult-to-degrade waste material into a
-valuable agricultural input, using engineered microbes as active agents of transformation.</p>
-<p>Our approach is scalable, modular, and aligned with principles of circular bioeconomy and
-environmental responsibility.</p></section>
-    <section class="section"><h2>What is Chitin?</h2><p>Chitin is a natural biopolymer, structurally similar to cellulose, and is considered the
+   
+
+
+
+
+
+
+
+
+
+
+<section id="solution" class="section">
+  <div class="section-content">
+    <div class="text">
+     <h2>Our Solution</h2><p>To address the dual challenge of agricultural overreliance on chemical fertilizers and the underutilization of chitin-rich seafood waste, our project proposes a <strong>synthetic biology-based biodegradation system</strong>.</p> <p>We genetically modify Bacillus subtilis and Escherichia coli to express a <strong>dual-function fusion enzyme</strong> composed of an <strong>endochitinase</strong> and an <strong>exochitinase</strong> domain. These two enzymes work synergistically to break down chitin into its monomeric units, primarily Nacetylglucosamine (GlcNAc).</p> <p>This enzymatic activity is designed to occur <strong>directly in the substrate</strong>—in chitin-containing biomass such as shrimp shells—where the engineered bacteria serve as biological tools for depolymerization.</p> <p>The result of this process is a <strong>nutrient-rich product</strong> derived from chitin degradation. This product can be:</p> <ul> <li>Integrated into compost mixtures, enhancing their nitrogen and carbon content</li> <li>Added to existing organic fertilizers, improving their bioavailability</li> <li>Explored as a potential standalone biofertilizer, due to its beneficial chemical profile</li> </ul> <p>In essence, we convert an otherwise inert and difficult-to-degrade waste material into a valuable agricultural input, using engineered microbes as active agents of transformation.</p> <p>Our approach is scalable, modular, and aligned with principles of circular bioeconomy and environmental responsibility.</p>
+    </div>
+    <div class="image">
+      <img src="images/our_solution_1.png" alt="Description">
+    </div>
+  </div>
+</section>
+
+
+<section id="chitin" class="section">
+  <div class="section-content">
+    <div class="text">
+     <h2>What is Chitin?</h2><p>Chitin is a natural biopolymer, structurally similar to cellulose, and is considered the
 <strong>second most abundant polysaccharide</strong> on Earth. It is composed of repeating units of Nacetyl-
 D-glucosamine (GlcNAc) linked by β-(1→4) glycosidic bonds.</p>
 <p>Chitin serves as a key structural component in several biological materials, including:
@@ -532,9 +705,18 @@ enzymatic systems</strong>, often working in synergy — including endochitinase
 and β-N-acetylglucosaminidases.</p>
 <p>Our project aims to harness these enzymatic tools through synthetic biology, to turn this
 recalcitrant biomass into a useful agricultural input.</p>
-    <img src="images/gif _chitin.gif" alt="Chitin structure" >
-    </section>
-    <section class="section"><h2>Our Mission</h2><p>With Chitinator et al., our mission goes beyond solving a single problem — we aim to
+    </div>
+    <div class="image">
+      <img src="images/what_is_chitin.png" alt="Description">
+    </div>
+  </div>
+</section>
+
+
+<section id="mission" class="section">
+  <div class="section-content">
+    <div class="text">
+    <h2>Our Mission</h2><p>With Chitinator et al., our mission goes beyond solving a single problem — we aim to
 redefine how we view waste, sustainability, and the role of biology in the modern world.</p>
 <p>We envision a future where <strong>biological tools are used to unlock the hidden value of natural
 materials</strong>, turning underutilized resources like chitin into solutions for global challenges such
@@ -545,8 +727,20 @@ the way for a circular and regenerative model of agriculture, where what was onc
 discarded becomes essential.</p>
 <p>Ultimately, our goal is to <strong>bridge the gap between innovation and impact</strong>—to create
 biological systems that not only work in the lab, but also serve communities, ecosystems, and
-the planet at large.</p></section>
-    <section class="section"><h2>The Methodology</h2><p>At the core of our approach lies the design of a synthetic fusion enzyme capable of
+the planet at large.</p>
+    </div>
+    <div class="image">
+      <img src="images/methodology_2.png" alt="Description">
+    </div>
+  </div>
+</section>
+
+
+
+<section id="methodology" class="section">
+  <div class="section-content">
+    <div class="text">
+     <h2>The Methodology</h2><p>At the core of our approach lies the design of a synthetic fusion enzyme capable of
 efficiently breaking down chitin. This fusion protein combines two distinct enzymatic
 domains: an <strong>endochitinase</strong>, which cleaves internal bonds within the chitin polymer, and an
 <strong>exochitinase</strong>, which further digests the resulting fragments from the ends into monomeric
@@ -573,16 +767,23 @@ efficiency</li></ul>
 <p>Finally, the chitin degradation products are collected and tested for their nutritional value
 and potential use as biofertilizers, either directly or as additives in compost formulations.
 This modular and iterative methodology allows us to <strong>build, test, and optimize</strong> a living
-system capable of turning chitin waste into a valuable agricultural input</p></section>
-  </main>
+system capable of turning chitin waste into a valuable agricultural input.</p>
+    </div>
+    <div class="image">
+      <img src="images/our_mission.png" alt="Description">
+    </div>
+  </div>
+</section>
 
-        <footer style="margin-top: 4rem; text-align:center; color: var(--muted); font-size:.9rem;">
-        <p>Place for footer when I finally decide what I want here</p>
-      </footer>
+
+
+
+
+       
     </main>
   </div>
 
-  <button id="backToTop" aria-label="Back to top">↑</button>
+
 
   <script>
     // Theme Toggle
@@ -651,6 +852,42 @@ document.addEventListener('click', (e) => {
 });
 
 
+// --- Scrollspy for top nav & side TOC
+    const sections = document.querySelectorAll('main section.section');
+    const topNavLinks = document.querySelectorAll('.top-nav a');
+    const tocLinks = document.querySelectorAll('aside.toc a');
+    const heroNavLink = document.querySelector('.top-nav a[href="#overview"]');
+
+    function activateLink(id) {
+      topNavLinks.forEach(a => a.classList.toggle('active', a.getAttribute('href') === `#${id}`));
+      tocLinks.forEach(a => a.classList.toggle('active', a.getAttribute('href') === `#${id}`));
+      if (!id && heroNavLink) {
+        topNavLinks.forEach(a => a.classList.remove('active'));
+        heroNavLink.classList.add('active');
+      }
+    }
+
+    const obs = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        const id = entry.target.getAttribute('id');
+        if (entry.isIntersecting) activateLink(id);
+      });
+    }, { rootMargin: '-50% 0px -50% 0px', threshold: 0 });
+
+    sections.forEach(section => obs.observe(section));
+
+    // --- Smooth scroll
+    document.querySelectorAll('a[href^="#"]').forEach(link => {
+      link.addEventListener('click', (e) => {
+        const targetId = link.getAttribute('href').substring(1);
+        const target = document.getElementById(targetId);
+        if (target) {
+          e.preventDefault();
+          target.scrollIntoView({ behavior: 'smooth' });
+          history.pushState(null, '', `#${targetId}`);
+        }
+      });
+    });
 
 
 
